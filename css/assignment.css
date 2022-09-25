@@ -135,7 +135,7 @@ h4{
 }
 
 h5{
-    font-size: 18px;
+    font-size: 15px;
 }
 
 span{
@@ -151,14 +151,24 @@ span{
     display: flex;
 }
 
+.left_img{
+    max-width: none;
+}
+
+
 /* 右邊文字內容 */
 .right_text{
     position: relative;
-    max-width: 100%;
+    max-width: 80%;
+    min-width: 50%;
     flex-grow: 1;
     padding: 0 15px;
     padding-right: 36px;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
+}
+
+.list_title{
+    max-width: 81%;
 }
 
 /* 星等評分 */
