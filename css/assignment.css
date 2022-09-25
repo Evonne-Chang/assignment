@@ -1,0 +1,186 @@
+@import url(./reset.css);
+
+body{
+    line-height: 1.6;
+}
+
+h3{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(99, 98, 98);
+
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+/* 最外層 */
+.wrapper{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* 卡片最外層 */
+.card_wrapper{
+    display: flex;
+    /* width: 100%; */
+}
+
+/* 卡片 */
+.card{
+    outline: 1px solid #ccc;
+    width: calc(25% - 30px);
+    margin: 60px 15px;
+    border-bottom: 6px solid orange;
+    position: relative;
+}
+
+/* 預覽圖區塊 */
+.thumbnail_area{
+    max-height: 190px;
+    position: relative;
+}
+
+/* 募資中標籤 */
+.label{
+    position: absolute;
+    background-color: orange;
+    color: white;
+    width: 120px;
+    text-align: center;
+    transform: rotate(45deg);
+    top: 18px;
+    right: -30px;
+}
+
+/* 用戶圖  */
+.user_img{
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    border: 2px solid white;
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    top: -27px;
+    left: 12px;
+}
+
+/* 文字區塊 */
+.text_content{
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+/* 標題 */
+.text_title{
+    margin-top:15px ;
+}
+
+/* 文字內容 */
+.flex_justify{
+    display: flex;
+    justify-content: space-between;
+}
+.text_space{
+    margin-top: 15px;
+}
+span{
+    color: rgb(172, 170, 170);
+}
+
+/* 價格橘色 */
+.price_orange{
+    color: orange;
+}
+
+/* 進度條 */
+.progress_container{
+    /* border: 1px blue solid; */
+    width: 100%;
+    height: 9px;
+    background-color: #ccc;
+    border-radius: 9px;
+    overflow: hidden;
+}
+.progress{
+    background-image: linear-gradient(90deg, rgb(255,180, 21), rgb(249, 141,0) 60%, rgb(240,120,0));
+    height: 100%;
+    display: block;
+}
+.progress01{
+    width: 70%;
+}
+
+/* 底部文字 */
+.text_bottom{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* card hidden */
+.card_hidden{
+    overflow: hidden;
+}
+
+/* ------Card End------- */
+
+
+/* 列表最外層 */
+h4{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h5{
+    font-size: 18px;
+}
+
+span{
+    font-size: 14px;
+}
+
+/* 列表 */
+.list_area{
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    padding: 15px 0 ;
+    border-bottom: 1px solid rgb(218, 218, 218);
+    display: flex;
+}
+
+/* 右邊文字內容 */
+.right_text{
+    position: relative;
+    max-width: 100%;
+    flex-grow: 1;
+    padding: 0 15px;
+    padding-right: 36px;
+    border: 1px solid pink;
+}
+
+/* 星等評分 */
+.score_rating{
+    color: rgb(237, 124, 18);
+    font-weight: bold;
+}
+.stars{
+    color: rgb(237, 124, 18);
+}
+
+/* 價格 */
+.price{
+    display: block;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.orgin_price{
+    text-decoration: line-through;
+    
+}
+
