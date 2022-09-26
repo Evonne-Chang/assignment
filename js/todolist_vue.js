@@ -68,24 +68,20 @@ var todolist = new Vue({
             return sortedArray;
         },
 
-        //         item.show = true;
-        filteredTodos: function () {
-            return filters[this.visibility](this.todos);
-        }
     }
 });
 
-var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
-var todoStorage = {
-    fetch: function () {
-        var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        return todos;
-    },
-    save: function (todos) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-        // console.log('item saved');
-    }
-}
+// var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
+// var todoStorage = {
+//     fetch: function () {
+//         var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+//         return todos;
+//     },
+//     save: function (todos) {
+//         localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+//         // console.log('item saved');
+//     }
+// }
 
 
 
