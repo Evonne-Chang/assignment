@@ -68,46 +68,23 @@ var todolist = new Vue({
             return sortedArray;
         },
 
-        // //顯示全部
-        // showAll: function () {
-        //     this.todo.forEach(item => {
-        //         item.show = true;
-        //     });
-        // },
-        // //顯示完成
-        // showDone: function () {
-        //     this.todo.forEach(item => {
-        //         item.show = true;
-        //         if (item.compeleted == false) {
-        //             item.show = false;
-        //         };
-        //     });
-        // },
-        // //顯示正在做
-        // showDoing: function () {
-        //     this.todo.forEach(item => {
-        //         item.show = true;
-        //         if (item.compeleted == true) {
-        //             item.show = false;
-        //         };
-        //     });
-        // },
-
-
+        filteredTodos: function () {
+            return filters[this.visibility](this.todos);
+        }
     }
 });
 
-// var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
-// var todoStorage = {
-//     fetch: function () {
-//         var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-//         return todos;
-//     },
-//     save: function (todos) {
-//         localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-//         // console.log('item saved');
-//     }
-// }
+var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
+var todoStorage = {
+    fetch: function () {
+        var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        return todos;
+    },
+    save: function (todos) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+        // console.log('item saved');
+    }
+}
 
 
 
