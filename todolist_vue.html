@@ -55,39 +55,22 @@
 
         </template>
 
-        <p v-else class="emptylist">Your todo list is empty.</p>
+        <!-- List is empty -->
+        <p v-else class="emptylist">Your to-do list is empty</p>
 
 
     </main>
 
-    <div class="wrap">
-        <h1>To Do List</h1>
-        <div class="container">
-            <!-- 輸入任務 綁定task內容且新增任務到todo裡-->
-            <input class="task" type="text" placeholder="your task" v-model="newTask" @keyup.enter="addTask(newTask)">
-            <ul class="tasklist">
-                <!-- 任務列表 從todo依序增加任務 -->
-                <li v-for="item in todo" v-if="item.show">
-                    <!-- 綁定class，條件checkbox打勾(compeleted = ture)，加上done的class -->
-                    <div class="tasktxt" v-bind:class="{done: item.compeleted}">
-                        <!-- 綁定checkbox內容 -->
-                        <input class="check" type="checkbox" v-model="item.compeleted">
-                        {{item.task}}
-                    </div>
-                    <!-- 刪除任務 消除預設事件且執行刪除-->
-                    <a href="#" @click.prevent="removeTask(item)">Delet</a>
-                </li>
-            </ul>
-            <div class="btnarea">
-                <button class="btn" @click="allDone">All Done</button>
-                <button class="btn" @click="showAll">All Task</button>
-                <button class="btn" @click="showDone">Done</button>
-                <button class="btn" @click="showDoing">Doing</button>
-            </div>
-        </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
-        <script src="./js/todolist_vue.js"></script>
+    <!-- <div class="btn_area">
+        <button class="btn" v-on:click="showAll">All Task</button>
+        <button class="btn" v-on:click="showDone">Done</button>
+        <button class="btn" v-on:click="showDoing">Doing</button>
+    </div> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="./js/todolist_vue.js"></script>
 </body>
 
 </html>

@@ -68,6 +68,32 @@ var todolist = new Vue({
             return sortedArray;
         },
 
+        // //顯示全部
+        // showAll: function () {
+        //     this.todo.forEach(item => {
+        //         item.show = true;
+        //     });
+        // },
+        // //顯示完成
+        // showDone: function () {
+        //     this.todo.forEach(item => {
+        //         item.show = true;
+        //         if (item.compeleted == false) {
+        //             item.show = false;
+        //         };
+        //     });
+        // },
+        // //顯示正在做
+        // showDoing: function () {
+        //     this.todo.forEach(item => {
+        //         item.show = true;
+        //         if (item.compeleted == true) {
+        //             item.show = false;
+        //         };
+        //     });
+        // },
+
+
     }
 });
 

@@ -127,39 +127,6 @@ span{
 
 /* ------Card End------- */
 
-/* Card RWD */
-
-@media screen and (max-width: 837px){
-
-    img{
-        max-width: unset;
-        width: 100%;
-    }
-
-    /* 卡片最外層 */
-    .card_wrapper{
-        flex-wrap: wrap-reverse;
-    }
-
-    /* 卡片 */
-    .card{
-        width: calc(50% - 30px);
-        margin: 30px 15px;
-        border-bottom: 6px solid orange;
-        position: relative;
-    }
-}
-
-@media screen and (max-width: 576px){
-
-    /* 文字內容 */
-    .flex_justify{
-        display: unset;
-        text-align: center;
-    }
-}
-
-
 
 /* 列表最外層 */
 h4{
@@ -225,44 +192,5 @@ span{
 .orgin_price{
     text-decoration: line-through;
     
-}
-
-/* 列表End */
-
-/* List RWD */
-@media screen and (max-width: 837px){
-
-    img{
-        width: 90%;
-    }
-
-    .list_title{
-        max-width: 66%;
-    }
-
-}
-
-@media screen and (max-width: 510px){
-
-    /* 列表 */
-    .list_area{
-        display: unset;
-    }
-
-    /* 列表圖片 */
-    .left_img{
-        margin: auto;
-    }
-
-    /* 右邊文字內容 */
-    .right_text{
-        margin: 0 auto;
-        margin-bottom: 30px;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .price{
-        right: 9px;
-    }
 }
 
