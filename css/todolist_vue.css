@@ -1,0 +1,156 @@
+body {
+	background:lightblue;
+	font-size:15px;
+	font-family:sans-serif;
+	height:100%;
+}
+
+input{
+    background: none;
+    border: #e3e3e3 1px solid;
+    transition: border 250ms ease-out;
+}
+
+input:focus {
+    border:lightgoldenrodyellow 2px solid;
+    outline: none;
+}
+
+
+#app {
+	margin:60px auto;
+	padding:30px 36px 36px;
+	max-width:480px;
+	background:#025b8f;
+	color:#FFF;
+	box-shadow:-15px 0px 0px -15px rgba(240, 203, 71, 0.233);
+}
+#app h1 {
+    text-align:center;
+    font-weight:normal;
+    font-size:36px;
+    letter-spacing:6px;
+    padding-bottom: 6px ;
+    border-bottom:1px solid rgba(255, 255, 255, 0.3); 
+}
+
+#app h2 {
+    text-align:center;
+    font-size:15px;
+    letter-spacing:6px;
+    margin-top: 6px;
+
+}
+
+
+#app h1 span {
+	display:block;
+	font-size:0.8rem;
+	margin-bottom:0.7rem;
+	margin-left:3px;
+	margin-top:0.2rem;   
+}
+
+#app .emptylist {
+	margin-top:2.6rem;
+	text-align:center;
+	letter-spacing:.05em;
+	font-style:italic;
+	opacity:0.8;
+	
+}
+#app ul {
+	margin-top:2.6rem;
+	list-style:none;
+}
+#app .todolist-move {
+	transition: transform 1s;
+}
+
+#app li {
+	display:flex;
+	margin:0 -3rem 4px;
+	padding:1.1rem 3rem;
+	justify-content:space-between;
+	align-items:center;
+	background:rgba(255,255,255,0.1);
+}
+
+#app .actions {
+	flex-shrink:0;
+	padding-left:0.7em;
+}
+#app .label {
+	position:relative;
+	transition:opacity .2s linear;
+}
+#app .done .label {
+	opacity:.6;
+}
+
+@keyframes clickanimation {
+	to { width:calc(100% + 1rem); }
+}
+
+#app .done .label:before {
+	content:'';
+	position:absolute;
+	top:50%;
+	left:-.5rem;
+	display:block;
+	width:0%;
+	height:1px;
+	background:#FFF;
+	animation:clickanimation .3s ease-out 0s forwards;
+}
+#app .btn-picto {
+	border:none;
+	background:none;
+	-webkit-appearance:none;
+	cursor:pointer;
+	color:#FFF;
+}
+
+
+/* FORM */
+form {
+	margin-top:3rem;
+	display:flex;
+	flex-wrap:wrap;
+}
+form label {
+	min-width:100%;
+	margin-bottom:.5rem;
+	font-size:1.3rem;
+}
+form input {
+	flex-grow:1;
+	border:none;
+	background:#ffffff;
+	padding:0 15px;
+	font-size:initial;
+}
+form button {
+	padding:0 15px;
+	border:none;
+	background:#2689c2;
+	color:white;
+	text-transform:uppercase;
+	font-weight:bold;
+	border:1px solid rgba(255,255,255,.3);
+	margin-left:5px;
+	cursor:pointer;
+	transition: .2s ease-out;
+}
+form button:hover {
+	background:#025b8f;
+}
+form input{
+	height:51px;
+}
+
+form button {
+	height:51px;
+}
+
+
