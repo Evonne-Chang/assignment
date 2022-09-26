@@ -1,23 +1,8 @@
-// list filters 選單篩選
-var filters = {
-    all: function (todo) {
-        return todo;
-    },
-    complete: function (todo) {
-        return todo.filter(function (todo) {
-            return todo.complete;
-        });
-    },
-    incomplete: function (todo) {
-        return todo.filter(function (todo) {
-            return !todo.complete;
-        });
-    }
-}
-
+// component
 Vue.component('togglebutton', {
 
     props: ['label', 'name'],
+    
     template:
         `<div class="togglebutton-wrapper" v-bind:class="isactive ? 'togglebutton-checked' : ''">
             <label v-bind:for="name">
@@ -38,10 +23,14 @@ Vue.component('togglebutton', {
     },
     methods: {
         onToogle: function () {
+            // 子層傳父層
             this.$emit('clicked', this.isactive)
         }
+
+
     }
 });
+
 
 var todolist = new Vue({
     el: '#app',
@@ -49,40 +38,29 @@ var todolist = new Vue({
         newitem: '',
         sortByStatus: false,
         todo: [],
-        visibility: 'all'
     },
     methods: {
         addItem: function () {
             this.todo.push({ id: Math.floor(Math.random() * 9999) + 10, label: this.newitem, done: false });
             this.newitem = '';
         },
-        DoneOrUndone: function (item) {
+        // Task doing or done
+        DoingOrDone: function (item) {
             item.done = !item.done;
         },
+        // task delete
         deleteItem: function (item) {
             let index = this.todo.indexOf(item)
             this.todo.splice(index, 1);
         },
-        clickontoogle: function (active) {
-            this.sortByStatus = active;
-        },
 
-        toggleTodo: function (todo) {
-            todo.complete = !todo.complete;
-        },
 
-        filterTodos: function (filter) {
-            this.visibility = filter;
-        },
+        
     },
     computed: {
-        todoByStatus: function () {
-
-            if (!this.sortByStatus) {
-                return this.todo;
-            }
-
-            var sortedArray = []
+        // 陣列轉元素
+        todoItems: function () {
+            
             var doneArray = this.todo.filter(function (item) { return item.done; });
             var notDoneArray = this.todo.filter(function (item) { return !item.done; });
 
@@ -90,23 +68,46 @@ var todolist = new Vue({
             return sortedArray;
         },
 
-        filteredTodos: function () {
-            return filters[this.visibility](this.todos);
-        }
+        // //顯示全部
+        // showAll: function () {
+        //     this.todo.forEach(item => {
+        //         item.show = true;
+        //     });
+        // },
+        // //顯示完成
+        // showDone: function () {
+        //     this.todo.forEach(item => {
+        //         item.show = true;
+        //         if (item.compeleted == false) {
+        //             item.show = false;
+        //         };
+        //     });
+        // },
+        // //顯示正在做
+        // showDoing: function () {
+        //     this.todo.forEach(item => {
+        //         item.show = true;
+        //         if (item.compeleted == true) {
+        //             item.show = false;
+        //         };
+        //     });
+        // },
+
+
     }
 });
 
-var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
-var todoStorage = {
-    fetch: function () {
-        var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        return todos;
-    },
-    save: function (todos) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-        // console.log('item saved');
-    }
-}
+// var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
+// var todoStorage = {
+//     fetch: function () {
+//         var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+//         return todos;
+//     },
+//     save: function (todos) {
+//         localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+//         // console.log('item saved');
+//     }
+// }
 
 
 

@@ -9,21 +9,26 @@ html {
 
 body {
   margin: 0;
-  background: rgb(10, 0, 36);
-  background: radial-gradient(circle, rgba(10, 0, 36, 0.1110819327731093) 0%, rgba(9, 9, 121, 0.1110819327731093) 5%, rgba(0, 212, 255, 0.04665616246498594) 100%);
+  background: lightblue;
+  color: #fff;
+  font-family: monospace;
 }
+
 
 article.task_container {
   width: 600px;
   margin: 50px auto;
   border-radius: 5px;
   padding: 10px;
-  box-shadow: 1px 1px 5px gray;
+  background-color: rgb(10, 95, 165);
+  box-shadow: 12px 12px orange;
 }
 
 h1.title1 {
-  font-size: 2.4rem;
-  margin: 0 0 10px 0;
+  color: orange;
+  text-align: center;
+  font-size: 36px;
+  margin: 21px;
 }
 
 /* ===== 任務新增 ===== */
@@ -51,17 +56,18 @@ div.task_add_block input.task_name {
 }
 
 input.task_name::placeholder {
-  color: lightgray;
+  color:  rgb(10, 95, 165);
 }
 
-div.task_add_block button.task_add {
+button.task_add {
   display: inline-block;
   width: 50px;
   height: 40px;
   vertical-align: top;
+  color: #fff;
   border: 1px solid lightgray;
   border-left: 0;
-  background-color: white;
+  background-color:  rgb(2, 57, 101);
   box-shadow: none;
   font-size: 1.6rem;
   cursor: pointer;
@@ -70,6 +76,7 @@ div.task_add_block button.task_add {
 }
 
 div.task_add_block button.task_add:active {
+  color: rgb(2, 57, 101);
   box-shadow: 1px 1px 3px lightgray inset, -1px -1px 3px lightgray inset;
   background-color: #fcfcfc;
   font-size: 1.5rem;
@@ -166,13 +173,15 @@ div.task_list_parent ul.task_list>li>div.item_flex>div.right_block div.btn_flex>
   font-size: 1.6rem;
   padding: 0;
   margin: 0;
-
   background: none;
   background-color: white;
+  color: rgb(2, 57, 101);
   border: 0;
   cursor: pointer;
   border: 1px solid #eee;
 }
+
+
 
 /* ===== 任務列表 ===== */
 div.task_list_parent {
@@ -187,7 +196,7 @@ div.task_list_parent ul.task_list {
 
 div.task_list_parent ul.task_list>li {
   margin-bottom: 20px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #FFF;
   padding-bottom: 20px;
   opacity: 1;
   transition: opacity 1s;
@@ -198,7 +207,7 @@ div.task_list_parent ul.task_list>li.fade_out {
 }
 
 div.task_list_parent ul.task_list>li:first-child {
-  border-top: 1px solid black;
+  border-top: 1px solid #FFF;
   padding-top: 20px;
 }
 
@@ -229,7 +238,7 @@ div.task_list_parent ul.task_list>li>div.item_flex>div.left_block div.btn_flex>b
   font-size: 1.6rem;
   padding: 0;
   margin: 0;
-
+  color: rgb(2, 57, 101);
   background: none;
   background-color: white;
   border: 0;
@@ -330,5 +339,5 @@ div.star_block>span.star {
 }
 
 div.star_block>span.star.-on {
-  color: yellow;
+  color: orange;
 }

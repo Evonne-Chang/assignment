@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,65 +10,67 @@
     <link rel="stylesheet" href="./css/todolist_vue.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
 
     <main id="app">
+        <!-- title -->
         <h1>Vue To-do List</h1>
         <h2>What need to be done</h2>
 
+        <!-- form 新增任務 -->
         <form name="newform" v-on:submit.prevent="addItem">
-            <label for="newitem">提交代辦清單</label>
+            <label for="newitem">提交代辦任務</label>
             <input type="text" name="newitem" id="newitem" v-model="newitem">
             <button type="submit">新增</button>
         </form>
-      
-        <template v-if="todo.length">
 
-          <transition-group name="app" tag="ul">
-            <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
-              <span class="label">{{item.label}}</span>
-              <div class="actions">
-                <button class="btn-picto" type="button" v-on:click="DoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
-                  <i aria-hidden="true" class="material-icons">{{ item.done ? 'check_box' : 'check_box_outline_blank' }}</i>
-                </button>
-                <button class="btn-picto" type="button" v-on:click="deleteItem(item)" aria-label="Delete" title="Delete">
-                  <i aria-hidden="true" class="material-icons">delete</i>
-                </button>
-                
-            </li>
-          </transition-group>
+        <!-- 任務樣板 -->
+        <template v-if="todo.length">
+            <!-- 任務列表 依序增加任務 -->
+            <transition-group name="app" tag="ul">
+
+                <!-- 把陣列轉成元素  & 動態綁定-->
+                <li v-for="item in todoItems" v-bind:key="item.id" v-bind:class="item.done ? 'done' : ''">
+                    <!-- item標籤 -->
+                    <span class="label">{{item.label}}</span>
+
+                    <div class="actions">
+                        <!-- Doing or Done -->
+                        <button class="btn-picto" type="button" v-on:click="DoingOrDone(item)"
+                            v-bind:aria-label="item.done ? 'Undone' : 'Done'"
+                            v-bind:title="item.done ? 'Undone' : 'Done'">
+                            <!-- frontawesome icon -->
+                            <i aria-hidden="true" class="material-icons">{{ item.done ? 'check_box' :
+                                'check_box_outline_blank' }}</i>
+                        </button>
+                        <!-- delete -->
+                        <button class="btn-picto" type="button" v-on:click="deleteItem(item)" aria-label="Delete"
+                            title="Delete">
+                            <!-- frontawesome icon trashcan-->
+                            <i aria-hidden="true" class="material-icons">delete</i>
+                        </button>
+                </li>
+            </transition-group>
 
         </template>
 
-    
+        <!-- List is empty -->
+        <p v-else class="emptylist">Your to-do list is empty</p>
 
-        <p v-else class="emptylist">Your todo list is empty.</p>
 
-    
+    </main>
 
-        <!-- list filters 選單篩選 -->
-        <div class="filters">
 
-            <button 
-                class="btn filters__btn filters__btn--all" 
-                v-on:click="filterTodos('all')">
-                All
-            </button>
+    <!-- <div class="btn_area">
+        <button class="btn" v-on:click="showAll">All Task</button>
+        <button class="btn" v-on:click="showDone">Done</button>
+        <button class="btn" v-on:click="showDoing">Doing</button>
+    </div> -->
 
-            <button class="btn filters__btn filters__btn--complete" 
-                v-on:click="filterTodos('complete')">
-                Complete
-            </button>
-
-            <button 
-                class="btn filters__btn filters__btn--incomplete" 
-                v-on:click="filterTodos('incomplete')">
-                Incomplete
-            </button>
-        </div>
-      </main>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
     <script src="./js/todolist_vue.js"></script>
 </body>
+
 </html>

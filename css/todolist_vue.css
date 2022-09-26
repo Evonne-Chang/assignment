@@ -23,7 +23,7 @@ input:focus {
 	max-width:480px;
 	background:#025b8f;
 	color:#FFF;
-	box-shadow:-15px 0px 0px -15px rgba(240, 203, 71, 0.233);
+	box-shadow:-15px 15px  rgb(234, 191, 35);
 }
 #app h1 {
     text-align:center;
