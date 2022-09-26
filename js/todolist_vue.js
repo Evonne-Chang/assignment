@@ -68,6 +68,7 @@ var todolist = new Vue({
             return sortedArray;
         },
 
+        //         item.show = true;
         filteredTodos: function () {
             return filters[this.visibility](this.todos);
         }
