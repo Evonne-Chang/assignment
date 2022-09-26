@@ -1,20 +1,4 @@
-// list filters 選單篩選
-var filters = {
-    all: function (todo) {
-        return todo;
-    },
-    complete: function (todo) {
-        return todo.filter(function (todo) {
-            return todo.complete;
-        });
-    },
-    incomplete: function (todo) {
-        return todo.filter(function (todo) {
-            return !todo.complete;
-        });
-    }
-}
-
+// component
 Vue.component('togglebutton', {
 
     props: ['label', 'name'],
@@ -40,8 +24,11 @@ Vue.component('togglebutton', {
         onToogle: function () {
             this.$emit('clicked', this.isactive)
         }
+
+
     }
 });
+
 
 var todolist = new Vue({
     el: '#app',
@@ -49,7 +36,6 @@ var todolist = new Vue({
         newitem: '',
         sortByStatus: false,
         todo: [],
-        visibility: 'all'
     },
     methods: {
         addItem: function () {
@@ -71,9 +57,31 @@ var todolist = new Vue({
             todo.complete = !todo.complete;
         },
 
-        filterTodos: function (filter) {
-            this.visibility = filter;
+        //顯示全部
+        showAll: function () {
+            this.todo.forEach(item => {
+                item.show = true;
+            });
         },
+        //顯示完成
+        showDone: function () {
+            this.todo.forEach(item => {
+                item.show = true;
+                if (item.compeleted == false) {
+                    item.show = false;
+                };
+            });
+        },
+        //顯示正在做
+        showDoing: function () {
+            this.todo.forEach(item => {
+                item.show = true;
+                if (item.compeleted == true) {
+                    item.show = false;
+                };
+            });
+        },
+
     },
     computed: {
         todoByStatus: function () {
@@ -90,23 +98,20 @@ var todolist = new Vue({
             return sortedArray;
         },
 
-        filteredTodos: function () {
-            return filters[this.visibility](this.todos);
-        }
     }
 });
 
-var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
-var todoStorage = {
-    fetch: function () {
-        var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        return todos;
-    },
-    save: function (todos) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-        // console.log('item saved');
-    }
-}
+// var STORAGE_KEY = 'vue-js-todo-P7oZi9sL'
+// var todoStorage = {
+//     fetch: function () {
+//         var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+//         return todos;
+//     },
+//     save: function (todos) {
+//         localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+//         // console.log('item saved');
+//     }
+// }
 
 
 
