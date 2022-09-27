@@ -232,7 +232,7 @@ span{
 /* List RWD */
 @media screen and (max-width: 837px){
 
-    img{
+    .left_img{
         width: 90%;
     }
 
